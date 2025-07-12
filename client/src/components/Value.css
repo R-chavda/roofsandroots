@@ -1,0 +1,184 @@
+/* Keep all existing accordion styles */
+.c-container .image-container,
+.v-container .image-container {
+  border: 8px solid rgb(232 232 232 / 93%);
+}
+
+.v-container>div {
+  flex: 1;
+}
+
+.v-right {
+  gap: 0.5rem;
+}
+
+.accordion {
+  margin-top: 2rem;
+  border: none;
+}
+
+.accordionItem {
+  background: white;
+  border: 2px solid rgba(128, 128, 128, 0.143);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.accordionItem.expanded {
+  box-shadow: var(--shadow);
+  border-radius: 6px;
+}
+
+.accordionButton {
+  background: white;
+  padding: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.icon {
+  padding: 10px;
+  background: #eeeeff;
+  border-radius: 5px;
+}
+
+.icon svg {
+  fill: var(--blue);
+}
+
+.accordionButton .primaryText {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+
+  .v-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .accordionButton .primaryText {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile-specific accordion improvements */
+@media (max-width: 480px) {
+
+
+  .v-container {
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+
+  .v-right {
+    gap: 1rem;
+  }
+
+  .accordion {
+    margin-top: 1.5rem;
+  }
+
+  .accordionItem {
+    margin-bottom: 15px;
+    border-radius: 12px;
+  }
+
+  .accordionButton {
+    padding: 1.2rem 1rem;
+    gap: 0.8rem;
+    min-height: 60px;
+    /* Better touch target */
+  }
+
+  .accordionButton .primaryText {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    flex: 1;
+    text-align: left;
+    margin: 0 0.5rem;
+  }
+
+  .icon {
+    padding: 8px;
+    min-width: 36px;
+    min-height: 36px;
+    flex-shrink: 0;
+  }
+
+  .icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Dropdown arrow icon */
+  .accordionButton .icon:last-child {
+    background: transparent;
+    padding: 4px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  /* Panel content */
+  .accordionItem .accordion__panel {
+    padding: 0;
+  }
+
+  .accordionItem .secondaryText {
+    padding: 1rem 1.2rem 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 360px) {
+  .accordionButton {
+    padding: 1rem 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .accordionButton .primaryText {
+    font-size: 0.85rem;
+    margin: 0 0.3rem;
+  }
+
+  .icon {
+    padding: 6px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .accordionItem .secondaryText {
+    padding: 0.8rem 1rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  .accordionButton {
+    transition: background-color 0.2s ease;
+  }
+
+  .accordionButton:active {
+    background-color: #f8f9ff;
+  }
+
+  .accordionItem {
+    transition: transform 0.1s ease;
+  }
+
+  .accordionItem:active {
+    transform: scale(0.98);
+  }
+}

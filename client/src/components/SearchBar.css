@@ -1,0 +1,75 @@
+.flexCenter-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 0;
+  /* Square shape */
+  border: 2px solid rgba(120, 120, 120, 0.374);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0;
+  /* Square shape */
+}
+
+.search-bar button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0;
+  /* Square shape */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.suggestion-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 0;
+  /* Square shape */
+  font-size: 0.9rem;
+  text-align: left;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-box div {
+  color: #000;
+  background-color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.suggestion-box div:hover {
+  background-color: #f0f0f0;
+}

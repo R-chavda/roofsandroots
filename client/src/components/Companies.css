@@ -1,0 +1,28 @@
+#c-container {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#c-container>img {
+    width: 9rem;
+
+
+}
+
+/* Mobile-only changes - below 480px */
+@media (max-width: 480px) {
+    #c-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+        justify-items: center;
+        align-items: center;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    #c-container>img {
+        width: 7rem;
+        max-width: 120px;
+    }
+}
