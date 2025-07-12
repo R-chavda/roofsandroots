@@ -20,6 +20,9 @@ const Layout = () => {
   const createUserMutation = useMutation({
     mutationKey: ["createUser", user?.email],
     mutationFn: (token) => createUser(user?.email, token),
+    onSuccess: (data) => {
+      console.log("User created successfully:", data);
+    },
     onError: (error) => {
       console.error("Failed to create user:", error);
     },
