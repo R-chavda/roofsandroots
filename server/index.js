@@ -15,16 +15,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.use((req, res, next) => {
-  if (Object.keys(req.body).length > 0) {
-    console.log(`Incoming request to: ${req.originalUrl}`);
-    console.log("  req.body:", req.body);
-  } else {
-    console.log(`Incoming request to: ${req.originalUrl} (no body)`);
-  }
-  next(); // Call the next middleware in the chain
-});
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

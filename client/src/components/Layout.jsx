@@ -20,9 +20,6 @@ const Layout = () => {
   const createUserMutation = useMutation({
     mutationKey: ["createUser", user?.email],
     mutationFn: (token) => createUser(user?.email, token),
-    onSuccess: (data) => {
-      console.log("User created successfully:", data);
-    },
     onError: (error) => {
       console.error("Failed to create user:", error);
     },
@@ -33,25 +30,18 @@ const Layout = () => {
       try {
         if (!isAuthenticated || !user?.email) return;
 
-        console.log("Getting token for:", user.email);
-
         const token = await getAccessTokenWithPopup({
           authorizationParams: {
-            audience: "http://localhost:8000",
+            audience: "https://roofsandroots.onrender.com",
             scope: "openid profile email",
           },
         });
-
-        console.log("Token acquired successfully", token);
 
         // Store token in localStorage
         localStorage.setItem("access_token", token);
 
         // Update user context with token
         setUserDetails((prev) => ({ ...prev, token }));
-
-        // Execute the mutation with the token
-        console.log("Executing createUser mutation");
         createUserMutation.mutate(token);
       } catch (error) {
         console.error("Error in authentication flow:", error);

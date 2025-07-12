@@ -17,7 +17,6 @@ export const createResidency = asyncHandler(async (req, res) => {
   const userEmail = req.body.data.userEmail; // ✅ from token
 
   if (!userEmail) {
-    console.log("User email not found in token");
     return res.status(400).json({ error: "User email not found in token" });
   }
 

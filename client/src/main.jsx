@@ -7,12 +7,12 @@ import { Auth0Provider } from "@auth0/auth0-react";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-z6f8jqzpafqayd7r.us.auth0.com"
-      clientId="4AKA3Zi7jnisg3vgOrotib0ob4XpoZyz"
+      domain="dev-rut5wdbp7tva64tg.us.auth0.com"
+      clientId="ICRrY9NLydoQpsMTYXlZIqbB7ueDzRys"
       authorizationParams={{
-        redirect_uri: "http://localhost:5173/",
+        redirect_uri: "https://roofandroots.onrender.com/",
       }}
-      audience="http://localhost:8000"
+      audience="https://roofsandroots.onrender.com"
       scope="openid profile email"
     >
       <App />

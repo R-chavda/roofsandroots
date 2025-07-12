@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
 export const api = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "https://roofsandroots.onrender.com/api",
 });
 
 export const getAllProperties = async () => {
@@ -158,7 +158,6 @@ export const getAllBookings = async (email, token) => {
 };
 
 export const createResidency = async (data, token) => {
-  console.log(data);
   try {
     const res = await api.post(
       `/residency/create`,
