@@ -13,13 +13,14 @@ const Layout = () => {
   useFavourites();
   useBookings();
 
-  const { isAuthenticated, user, getAccessTokenWithPopup } = useAuth0();
+  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
 
   // Define your mutation
   const createUserMutation = useMutation({
     mutationKey: ["createUser", user?.email],
     mutationFn: (token) => createUser(user?.email, token),
+    onMutate: console.log("Creating user with token:", user?.email, token),
     onError: (error) => {
       console.error("Failed to create user:", error);
     },
@@ -30,7 +31,7 @@ const Layout = () => {
       try {
         if (!isAuthenticated || !user?.email) return;
 
-        const token = await getAccessTokenWithPopup({
+        const token = await getAccessTokenSilently({
           authorizationParams: {
             audience: "https://roofsandroots.onrender.com",
             scope: "openid profile email",
@@ -43,6 +44,7 @@ const Layout = () => {
         // Update user context with token
         setUserDetails((prev) => ({ ...prev, token }));
         createUserMutation.mutate(token);
+        console.log("User registered successfully with token:", token);
       } catch (error) {
         console.error("Error in authentication flow:", error);
       }
