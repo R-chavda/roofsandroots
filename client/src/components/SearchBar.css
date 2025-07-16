@@ -23,9 +23,11 @@
   border: none;
   outline: none;
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.5rem;
   border-radius: 0;
-  /* Square shape */
+  width: 75%;
+  position: relative;
+  bottom: 5px;
 }
 
 .search-bar button {
