@@ -51,7 +51,6 @@ const Layout = () => {
       } catch (error) {
           console.error("Error in authentication flow:", error);
         }
-      }
     };
 
     if (isAuthenticated && user?.email) {
