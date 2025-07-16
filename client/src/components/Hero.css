@@ -117,3 +117,36 @@
     font-size: 0.8rem;
   }
 }
+
+@media (max-width: 450px) {
+  #hero-container {
+    padding: 0;
+    margin: -1rem 0 1rem;
+  }
+
+  #hero-left {
+    gap: 2rem;
+    margin: 0 1rem;
+  }
+
+  #search-bar {
+    border-radius: 0.5rem;
+  }
+
+  #search-bar button {
+    border-radius: 0.5rem;
+  }
+
+  .white-gradient {
+    display: none;
+  }
+
+  #hero-desc-text {
+    display: flex;
+    max-width: 70%;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+
+}
