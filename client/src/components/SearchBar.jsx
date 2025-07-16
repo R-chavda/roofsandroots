@@ -71,12 +71,20 @@ const SearchBar = ({ filter, setFilter }) => {
   };
 
   return (
-    <div className="flexCenter-search search-bar" style={{ position: "relative" }}>
+    <div
+      className="flexCenter-search search-bar"
+      style={{ position: "relative" }}
+      id="search-bar"
+    >
       <div className="search-bar-top">
-        <HiLocationMarker color="var(--blue)" size={25} />
+        <HiLocationMarker
+          color="var(--blue)"
+          size={25}
+          style={{ marginTop: "0.75rem" }}
+        />
         <input
           ref={inputRef}
-          placeholder="Search by title or city"
+          placeholder="Click to search"
           type="text"
           value={filter}
           onChange={(e) => {
