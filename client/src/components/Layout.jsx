@@ -13,7 +13,8 @@ const Layout = () => {
   useFavourites();
   useBookings();
 
-  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, user, getAccessTokenWithPopup, loginWithRedirect } =
+    useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
 
   // Define your mutation
@@ -33,7 +34,7 @@ const Layout = () => {
       try {
         if (!isAuthenticated || !user?.email) return;
 
-        const token = await getAccessTokenSilently({
+        const token = await getAccessTokenWithPopup({
           authorizationParams: {
             audience: "https://roofsandroots.onrender.com",
             scope: "openid profile email",
@@ -48,7 +49,14 @@ const Layout = () => {
         createUserMutation.mutate(token);
         console.log("User registered successfully with token:", token);
       } catch (error) {
-        console.error("Error in authentication flow:", error);
+        if (
+          error.error === "login_required" ||
+          error.error === "consent_required"
+        ) {
+          loginWithRedirect();
+        } else {
+          console.error("Error in authentication flow:", error);
+        }
       }
     };
 

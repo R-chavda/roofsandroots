@@ -88,7 +88,8 @@ const AboutUs = () => {
           <p className="secondaryText">
             Hi, I'm Chavda Rahul, the creator and developer behind Roof & Roots.
             I am passionate about building web applications and solving
-            real-world problems with technology. 
+            real-world problems with technology.
+          </p>
         </div>
       </div>
     </div>
