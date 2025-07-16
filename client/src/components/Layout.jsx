@@ -13,7 +13,7 @@ const Layout = () => {
   useFavourites();
   useBookings();
 
-  const { isAuthenticated, user, getAccessTokenSilently, loginWithRedirect } =
+  const { isAuthenticated, user, getAccessTokenSilently } =
     useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
 
@@ -49,12 +49,6 @@ const Layout = () => {
         createUserMutation.mutate(token);
         console.log("User registered successfully with token:", token);
       } catch (error) {
-        if (
-          error.error === "login_required" ||
-          error.error === "consent_required"
-        ) {
-          loginWithRedirect();
-        } else {
           console.error("Error in authentication flow:", error);
         }
       }
