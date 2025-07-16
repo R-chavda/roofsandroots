@@ -13,7 +13,7 @@ const Layout = () => {
   useFavourites();
   useBookings();
 
-  const { isAuthenticated, user, getAccessTokenWithPopup, loginWithRedirect } =
+  const { isAuthenticated, user, getAccessTokenSilently, loginWithRedirect } =
     useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
 
@@ -34,7 +34,7 @@ const Layout = () => {
       try {
         if (!isAuthenticated || !user?.email) return;
 
-        const token = await getAccessTokenWithPopup({
+        const token = await getAccessTokenSilently({
           authorizationParams: {
             audience: "https://roofsandroots.onrender.com",
             scope: "openid profile email",
